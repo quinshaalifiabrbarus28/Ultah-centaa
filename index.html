@@ -1120,13 +1120,15 @@
       <p>✨ Kamu berhasil melewati semua permainan! ✨</p>
 
       <!-- FOTO — DIPERBAIKI -->
-      <div class="photo-box">
-        <img 
-          src="91425.jpg" 
-          alt="Foto Centa dan Aku"
-          ="this.alt='Pastikan file 91425.jpg ada di folder yang sama!'"
-        >
-      </div>
+<div class="photo-box">
+  <img src="91425.jpg" alt="Foto Centa dan Aku">
+</div>
+
+<!-- Tombol Musik — biar kelihatan jelas di bawah foto -->
+<div style="text-align:center; margin:20px 0;">
+  <button class="btn" onclick="toggleMusic()">🎵 Klik Putar Lagu</button>
+</div>
+
 
       <!-- PESAN UTAMA -->
       <div class="final-message">
@@ -1205,10 +1207,32 @@
     /* =====================================
        MUSIK YOUTUBE
     ====================================== */
-    function playMusic() {
-      const player = document.getElementById("musicPlayer");
-      player.src = "https://www.youtube.com/embed/5UihqGaL5nM?autoplay=1&loop=1&playlist=5UihqGaL5nM&controls=0";
-    }
+    <!-- YOUTUBE MUSIC PLAYER -->
+<iframe 
+  id="musicPlayer" 
+  src="" 
+  title="Music Player" 
+  allow="autoplay; encrypted-media"
+  style="display:none;"
+></iframe>
+
+<script>
+let musicPlaying = false;
+const YOUTUBE_ID = "5UihqGaL5nM"; // ID lagu YouTube kamu
+
+function toggleMusic() {
+  const player = document.getElementById("musicPlayer");
+  if (!musicPlaying) {
+    player.src = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&loop=1&playlist=${YOUTUBE_ID}`;
+    musicPlaying = true;
+    alert("🎵 Lagu diputar!"); // opsional, biar tahu tombol berfungsi
+  } else {
+    player.src = "";
+    musicPlaying = false;
+  }
+}
+</script>
+
 
     /* =====================================
        GANTI SLIDE
