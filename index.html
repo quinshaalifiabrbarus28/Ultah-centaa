@@ -4,469 +4,142 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sweet Seventeen Centa 🦫🤍</title>
-
   <style>
-    /* =====================================
-       RESET
-    ===================================== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    /* =====================================
-       BODY
-    ===================================== */
+    * {box-sizing:border-box;margin:0;padding:0;font-family:'Segoe UI',sans-serif;}
     body {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #555555 0%, #2b2b2b 55%, #202020 100%);
-      color: #eeeeee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      overflow-x: hidden;
+      min-height:100vh;
+      background:radial-gradient(circle at top,#555 0%,#2b2b2b 55%,#202020 100%);
+      color:#eee;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      padding:20px;
     }
-
-    /* =====================================
-       CONTAINER
-    ===================================== */
     .container {
-      width: 100%;
-      max-width: 520px;
-      background: rgba(58, 58, 58, 0.96);
-      border: 1px solid #666666;
-      border-radius: 25px;
-      padding: 28px 22px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-      position: relative;
-      overflow: hidden;
+      width:100%;max-width:520px;
+      background:rgba(58,58,58,.96);
+      border:1px solid #666;
+      border-radius:25px;
+      padding:28px 22px;
+      text-align:center;
+      box-shadow:0 20px 50px rgba(0,0,0,.55);
+      position:relative;
+      overflow:hidden;
     }
-
-    /* =====================================
-       DECORATION
-    ===================================== */
-    .decor {
-      position: absolute;
-      font-size: 1.4rem;
-      opacity: 0.45;
-      pointer-events: none;
-    }
-    .d1 { top: 15px; left: 20px; }
-    .d2 { top: 15px; right: 20px; }
-    .d3 { bottom: 15px; left: 20px; }
-    .d4 { bottom: 15px; right: 20px; }
-
-    /* =====================================
-       SLIDE
-    ===================================== */
-    .slide {
-      display: none;
-      animation: fadeIn 0.7s ease;
-    }
-    .slide.active { display: block; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* =====================================
-       EMOJI
-    ===================================== */
-    .big-emoji {
-      font-size: 4.5rem;
-      margin: 15px 0 20px;
-      animation: floating 2.5s ease-in-out infinite;
-    }
-
-    @keyframes floating {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    /* =====================================
-       TEXT
-    ===================================== */
-    h1 { font-size: 2rem; color: #ffffff; margin-bottom: 12px; }
-    h2 { font-size: 1.45rem; color: #ffffff; margin-bottom: 15px; }
-    h3 { margin-bottom: 12px; color: #eeeeee; }
-    p { color: #cccccc; line-height: 1.65; font-size: 0.95rem; margin-bottom: 18px; }
-    .small { font-size: 0.8rem; color: #aaaaaa; }
-
-    /* =====================================
-       BUTTON
-    ===================================== */
+    .decor {position:absolute;font-size:1.4rem;opacity:.45;pointer-events:none;}
+    .d1 {top:15px;left:20px;} .d2 {top:15px;right:20px;}
+    .d3 {bottom:15px;left:20px;} .d4 {bottom:15px;right:20px;}
+    .slide {display:none;animation:fadeIn .7s ease;}
+    .slide.active {display:block;}
+    @keyframes fadeIn {from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);}}
+    .big-emoji {font-size:4.5rem;margin:15px 0 20px;animation:floating 2.5s ease-in-out infinite;}
+    @keyframes floating {0%,100%{transform:translateY(0);} 50%{transform:translateY(-8px);}}
+    h2 {font-size:1.45rem;color:#fff;margin-bottom:15px;}
+    p {color:#ccc;line-height:1.65;font-size:.95rem;margin-bottom:18px;}
+    .small {font-size:.8rem;color:#aaa;}
     .btn {
-      background: linear-gradient(135deg, #666666, #444444);
-      color: white;
-      border: 1px solid #777777;
-      padding: 12px 22px;
-      border-radius: 30px;
-      font-size: 0.95rem;
-      font-weight: bold;
-      cursor: pointer;
-      margin: 6px;
-      transition: 0.25s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      background:linear-gradient(135deg,#666,#444);
+      color:#fff;border:1px solid #777;
+      padding:12px 22px;border-radius:30px;
+      font-size:.95rem;font-weight:bold;
+      cursor:pointer;margin:6px;transition:.25s;
+      box-shadow:0 5px 15px rgba(0,0,0,.3);
     }
-    .btn:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, #777777, #555555);
-    }
-    .btn:active { transform: scale(0.96); }
-
-    /* =====================================
-       INPUT
-    ===================================== */
+    .btn:hover {transform:translateY(-2px);background:linear-gradient(135deg,#777,#555);}
+    .btn:active {transform:scale(.96);}
     input {
-      width: 85%;
-      padding: 13px 15px;
-      border-radius: 12px;
-      border: 2px solid #555555;
-      background: #222222;
-      color: white;
-      text-align: center;
-      font-size: 1rem;
-      outline: none;
-      margin: 10px 0 15px;
+      width:85%;padding:13px 15px;border-radius:12px;
+      border:2px solid #555;background:#222;color:#fff;
+      text-align:center;font-size:1rem;outline:none;margin:10px 0 15px;
     }
-    input:focus { border-color: #999999; }
-
-    /* =====================================
-       ERROR / SUCCESS
-    ===================================== */
-    .message {
-      padding: 12px;
-      border-radius: 12px;
-      margin: 12px 0;
-      display: none;
-      font-size: 0.9rem;
-    }
-    .error { background: #482d2d; color: #ffaaaa; }
-    .success { background: #303f34; color: #bde8c8; }
-
-    /* =====================================
-       OPTIONS GAME 2
-    ===================================== */
-    .options { display: grid; gap: 10px; margin: 18px 0; }
+    input:focus {border-color:#999;}
+    .message {padding:12px;border-radius:12px;margin:12px 0;display:none;font-size:.9rem;}
+    .error {background:#482d2d;color:#ffa;}
+    .success {background:#303f34;color:#bde8c8;}
+    .options {display:grid;gap:10px;margin:18px 0;}
     .option {
-      width: 100%;
-      padding: 13px;
-      border-radius: 12px;
-      border: 1px solid #666666;
-      background: #303030;
-      color: #eeeeee;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: 0.25s;
+      width:100%;padding:13px;border-radius:12px;
+      border:1px solid #666;background:#333;color:#eee;
+      cursor:pointer;font-size:.95rem;transition:.25s;
     }
-    .option:hover { background: #505050; transform: scale(1.02); }
-
-    /* =====================================
-       CODE GAME
-    ===================================== */
+    .option:hover {background:#555;transform:scale(1.02);}
     .code-box {
-      background: #222222;
-      border: 1px solid #555555;
-      padding: 18px;
-      border-radius: 15px;
-      margin: 18px 0;
-      font-size: 1.35rem;
-      letter-spacing: 7px;
-      font-weight: bold;
+      background:#222;border:1px solid #555;padding:18px;
+      border-radius:15px;margin:18px 0;font-size:1.35rem;
+      letter-spacing:7px;font-weight:bold;
     }
-    .hint-box {
-      background: #303030;
-      padding: 12px;
-      border-radius: 12px;
-      color: #bbbbbb;
-      font-size: 0.85rem;
-      margin-bottom: 15px;
-    }
-
-    /* =====================================
-       MEMORY GAME
-    ===================================== */
-    .emoji-memory {
-      background: #252525;
-      border-radius: 15px;
-      padding: 20px;
-      font-size: 2.2rem;
-      letter-spacing: 7px;
-      margin: 18px 0;
-    }
-    .memory-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .memory-option {
-      padding: 13px;
-      border-radius: 12px;
-      border: 1px solid #666666;
-      background: #353535;
-      color: white;
-      cursor: pointer;
-      font-size: 1.1rem;
-    }
-    .memory-option:hover { background: #555555; }
-
-    /* =====================================
-       TIMER
-    ===================================== */
-    .timer {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #dddddd;
-      margin: 10px 0;
-    }
-
-    /* =====================================
-       GIFT GAME
-    ===================================== */
-    .gift-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: 25px 0;
-    }
-    .gift {
-      background: #303030;
-      border: 1px solid #666666;
-      border-radius: 15px;
-      padding: 22px 8px;
-      cursor: pointer;
-      font-size: 2.5rem;
-      transition: 0.3s;
-    }
-    .gift:hover {
-      transform: translateY(-7px) rotate(2deg);
-      background: #4a4a4a;
-    }
-
-    /* =====================================
-       PHOTO — DIPERBAIKI
-    ===================================== */
-    .photo-box {
-      width: 100%;
-      margin: 25px auto;
-      text-align: center;
-    }
-    .photo-box img {
-      width: 100%;
-      max-width: 430px;
-      height: auto;
-      display: block;
-      margin: auto;
-      border-radius: 20px;
-      border: 3px solid #777777;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      object-fit: cover;
-      filter: grayscale(30%);
-      transition: 0.5s;
-    }
-    .photo-box img:hover { filter: grayscale(0%); }
-
-    /* =====================================
-       FINAL CARD
-    ===================================== */
-    .birthday-title { font-size: 2rem; margin: 10px 0; color: white; }
-    .birthday-name { font-size: 2.8rem; font-weight: bold; color: #eeeeee; margin-bottom: 15px; }
-    .final-message {
-      background: #2c2c2c;
-      padding: 18px;
-      border-radius: 15px;
-      text-align: left;
-      border: 1px solid #444444;
-      margin-top: 15px;
-    }
-
-    /* =====================================
-       ANIMASI PELUKAN — DITAMBAHKAN
-    ===================================== */
-    .hug-container {
-      position: relative;
-      width: 200px;
-      height: 180px;
-      margin: 35px auto 25px;
-    }
+    .hint-box {background:#333;padding:12px;border-radius:12px;color:#bbb;font-size:.85rem;margin-bottom:15px;}
+    .emoji-memory {background:#252525;border-radius:15px;padding:20px;font-size:2.2rem;letter-spacing:7px;margin:18px 0;}
+    .memory-options {display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:15px;}
+    .memory-option {padding:13px;border-radius:12px;border:1px solid #666;background:#353535;color:#fff;cursor:pointer;font-size:1.1rem;}
+    .memory-option:hover {background:#555;}
+    .timer {font-size:1.1rem;font-weight:bold;color:#ddd;margin:10px 0;}
+    .gift-container {display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:25px 0;}
+    .gift {background:#333;border:1px solid #666;border-radius:15px;padding:22px 8px;cursor:pointer;font-size:2.5rem;transition:.3s;}
+    .gift:hover {transform:translateY(-7px) rotate(2deg);background:#4a4a4a;}
+    .birthday-title {font-size:2rem;margin:10px 0;color:#fff;}
+    .birthday-name {font-size:2.8rem;font-weight:bold;color:#eee;margin-bottom:15px;}
+    .final-message {background:#2c2c2c;padding:18px;border-radius:15px;text-align:left;border:1px solid #444;margin-top:15px;}
+    .hug-container {position:relative;width:200px;height:180px;margin:35px auto 25px;}
     .person {
-      position: absolute;
-      bottom: 20px;
-      width: 70px;
-      height: 100px;
-      border-radius: 35px 35px 25px 25px;
-      background: linear-gradient(180deg, #ffdbac 0%, #f0c890 100%);
+      position:absolute;bottom:20px;width:70px;height:100px;
+      border-radius:35px 35px 25px 25px;
+      background:linear-gradient(180deg,#ffdbac,#f0c890);
     }
     .person::before {
-      content: '';
-      position: absolute;
-      top: -25px;
-      left: 10px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #ffdbac 0%, #f0c890 100%);
+      content:'';position:absolute;top:-25px;left:10px;
+      width:50px;height:50px;border-radius:50%;
+      background:linear-gradient(180deg,#ffdbac,#f0c890);
     }
-    .person-1::after, .person-2::after {
-      content: '';
-      position: absolute;
-      top: -30px;
-      left: 5px;
-      width: 60px;
-      height: 35px;
-      border-radius: 50% 50% 0 0;
+    .person-1::after,.person-2::after {
+      content:'';position:absolute;top:-30px;left:5px;
+      width:60px;height:35px;border-radius:50% 50% 0 0;
     }
-    .person-1::after { background: #5d4037; }
-    .person-2::after { background: #8d6e63; }
-    .person-1 {
-      left: 30px;
-      transform: scaleX(-1);
-      animation: hugLeft 2s ease-in-out infinite alternate;
-    }
-    .person-2 {
-      right: 30px;
-      animation: hugRight 2s ease-in-out infinite alternate;
-    }
+    .person-1::after {background:#5d4037;}
+    .person-2::after {background:#8d6e63;}
+    .person-1 {left:30px;transform:scaleX(-1);animation:hugLeft 2s ease-in-out infinite alternate;}
+    .person-2 {right:30px;animation:hugRight 2s ease-in-out infinite alternate;}
     .arm {
-      position: absolute;
-      width: 25px;
-      height: 60px;
-      border-radius: 15px;
-      background: linear-gradient(180deg, #ffdbac 0%, #f0c890 100%);
+      position:absolute;width:25px;height:60px;border-radius:15px;
+      background:linear-gradient(180deg,#ffdbac,#f0c890);
     }
-    .person-1 .arm {
-      top: 20px;
-      right: -15px;
-      transform: rotate(-30deg);
-      transform-origin: top left;
-      animation: armLeft 2s ease-in-out infinite alternate;
-    }
-    .person-2 .arm {
-      top: 20px;
-      left: -15px;
-      transform: rotate(30deg);
-      transform-origin: top right;
-      animation: armRight 2s ease-in-out infinite alternate;
-    }
+    .person-1 .arm {top:20px;right:-15px;transform:rotate(-30deg);transform-origin:top left;animation:armLeft 2s ease-in-out infinite alternate;}
+    .person-2 .arm {top:20px;left:-15px;transform:rotate(30deg);transform-origin:top right;animation:armRight 2s ease-in-out infinite alternate;}
     .heart-hug {
-      position: absolute;
-      top: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 2.5rem;
-      color: #ff6b9d;
-      animation: heartbeat 1s ease-in-out infinite alternate;
-      z-index: 5;
-      text-shadow: 0 0 10px rgba(255,107,157,0.5);
+      position:absolute;top:40px;left:50%;transform:translateX(-50%);
+      font-size:2.5rem;color:#ff6b9d;animation:heartbeat 1s ease-in-out infinite alternate;
+      z-index:5;text-shadow:0 0 10px rgba(255,107,157,.5);
     }
-    @keyframes hugLeft {
-      0%   { transform: scaleX(-1) translateX(0); }
-      100% { transform: scaleX(-1) translateX(8px); }
-    }
-    @keyframes hugRight {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(8px); }
-    }
-    @keyframes armLeft {
-      0%   { transform: rotate(-30deg); }
-      100% { transform: rotate(-10deg); }
-    }
-    @keyframes armRight {
-      0%   { transform: rotate(30deg); }
-      100% { transform: rotate(10deg); }
-    }
-    @keyframes heartbeat {
-      0%   { transform: translateX(-50%) scale(1); opacity: 0.8; }
-      100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
-    }
-
-    /* =====================================
-       PESAN TAMBAHAN & DOA
-    ===================================== */
-    .extra-wishes {
-      background: #2c2c2c;
-      padding: 22px;
-      border-radius: 15px;
-      border: 1px solid #444;
-      margin-top: 10px;
-      text-align: center;
-    }
-    .extra-wishes h3 {
-      color: #ffd700;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-    .extra-wishes p {
-      color: #dddddd;
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-    .prayer-line {
-      color: #ffb6c1;
-      font-style: italic;
-    }
-
-    /* =====================================
-       CONFETTI
-    ===================================== */
+    @keyframes hugLeft {0%{transform:scaleX(-1) translateX(0);} 100%{transform:scaleX(-1) translateX(8px);}}
+    @keyframes hugRight {0%{transform:translateX(0);} 100%{transform:translateX(8px);}}
+    @keyframes armLeft {0%{transform:rotate(-30deg);} 100%{transform:rotate(-10deg);}}
+    @keyframes armRight {0%{transform:rotate(30deg);} 100%{transform:rotate(10deg);}}
+    @keyframes heartbeat {0%{transform:translateX(-50%) scale(1);opacity:.8;} 100%{transform:translateX(-50%) scale(1.2);opacity:1;}}
+    .extra-wishes {background:#2c2c2c;padding:22px;border-radius:15px;border:1px solid #444;margin-top:10px;text-align:center;}
+    .extra-wishes h3 {color:#ffd700;font-size:1.2rem;margin-bottom:15px;}
+    .extra-wishes p {color:#ddd;line-height:1.7;font-size:.95rem;}
+    .prayer-line {color:#ffb6c1;font-style:italic;}
     .confetti {
-      position: fixed;
-      top: -20px;
-      font-size: 1.5rem;
-      animation: fall 3s linear forwards;
-      pointer-events: none;
-      z-index: 9999;
+      position:fixed;top:-20px;font-size:1.5rem;
+      animation:fall 3s linear forwards;
+      pointer-events:none;z-index:9999;
     }
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(720deg);
-        opacity: 0;
-      }
-    }
-
-    /* =====================================
-       YOUTUBE
-    ===================================== */
-    #musicPlayer {
-      position: fixed;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
-      pointer-events: none;
-      border: none;
-    }
-
-    /* =====================================
-       MOBILE
-    ===================================== */
-    @media (max-width: 480px) {
-      .container { padding: 23px 17px; }
-      h1 { font-size: 1.7rem; }
-      h2 { font-size: 1.3rem; }
-      .birthday-name { font-size: 2.3rem; }
-      .big-emoji { font-size: 3.8rem; }
-      .gift { font-size: 2.1rem; padding: 20px 5px; }
+    @keyframes fall {to{transform:translateY(110vh) rotate(720deg);opacity:0;}}
+    #musicPlayer {position:fixed;top:-9999px;left:-9999px;opacity:0;pointer-events:none;border:none;}
+    @media (max-width:480px) {
+      .container {padding:23px 17px;}
+      h2 {font-size:1.3rem;}
+      .birthday-name {font-size:2.3rem;}
+      .big-emoji {font-size:3.8rem;}
+      .gift {font-size:2.1rem;padding:20px 5px;}
     }
   </style>
 </head>
-
-<body>
-  <!-- DEKORASI -->
-  <div class="decor d1">🩶</div>
-  <div class="decor d2">✨</div>
-  <div class="decor d3">🤍</div>
-  <div class="decor d4">🦫</div>
-
+<body onload="autoPlayMusic()">
+  <div class="decor d1">🩶</div><div class="decor d2">✨</div><div class="decor d3">🤍</div><div class="decor d4">🦫</div>
   <div class="container">
-    <!-- =====================================
-         GAME 1
-    ====================================== -->
+
+    <!-- SLIDE 1 -->
     <div class="slide active" id="slide1">
       <div class="big-emoji">🦫💬</div>
       <h2>Teka-teki pertama!</h2>
@@ -477,9 +150,7 @@
       <div class="message error" id="game1Error">Hmm... belum tepat 😭<br>Petunjuknya: Capy...</div>
     </div>
 
-    <!-- =====================================
-         GAME 2
-    ====================================== -->
+    <!-- SLIDE 2 -->
     <div class="slide" id="slide2">
       <div class="big-emoji">🧠✨</div>
       <h2>Game 2 — Seberapa Kenal Centa?</h2>
@@ -494,9 +165,7 @@
       <div class="message error" id="game2Error">Yakin? Coba pikir lagi 😂</div>
     </div>
 
-    <!-- =====================================
-         GAME 3
-    ====================================== -->
+    <!-- SLIDE 3 -->
     <div class="slide" id="slide3">
       <div class="big-emoji">🔐🧩</div>
       <h2>Game 3 — Kode Rahasia</h2>
@@ -508,9 +177,7 @@
       <div class="message error" id="game3Error">Hmm... kodenya belum benar 😭</div>
     </div>
 
-    <!-- =====================================
-         GAME 4
-    ====================================== -->
+    <!-- SLIDE 4 -->
     <div class="slide" id="slide4">
       <div class="big-emoji">🧩👀</div>
       <h2>Game 4 — Memory Challenge</h2>
@@ -532,9 +199,7 @@
       <div class="message error" id="game4Error">Yahhh salah 😭 Coba lebih teliti!</div>
     </div>
 
-    <!-- =====================================
-         GAME 5
-    ====================================== -->
+    <!-- SLIDE 5 -->
     <div class="slide" id="slide5">
       <div class="big-emoji">🎁✨</div>
       <h2>Game 5 — Hadiah Terakhir</h2>
@@ -548,592 +213,22 @@
       <div class="message error" id="giftError"></div>
     </div>
 
-    <!-- =====================================
-         FINAL — DIPERBAIKI & DITAMBAH
-    ====================================== -->
+    <!-- SLIDE 6 — FINAL -->
     <div class="slide" id="slide6">
       <div class="big-emoji">🎉🦫🤍</div>
       <div class="birthday-title">HAPPY SWEET SEVENTEEN</div>
       <div class="birthday-name">CENTA</div>
       <p>✨ Kamu berhasil melewati semua permainan! ✨</p>
 
-      <!-- FOTO — DIPERBAIKI -->
-      <div class="photo-box">
-        <img 
-          src="<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sweet Seventeen Centa 🦫🤍</title>
-
-  <style>
-    /* =====================================
-       RESET
-    ===================================== */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-
-    /* =====================================
-       BODY
-    ===================================== */
-    body {
-      min-height: 100vh;
-      background: radial-gradient(circle at top, #555555 0%, #2b2b2b 55%, #202020 100%);
-      color: #eeeeee;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-      overflow-x: hidden;
-    }
-
-    /* =====================================
-       CONTAINER
-    ===================================== */
-    .container {
-      width: 100%;
-      max-width: 520px;
-      background: rgba(58, 58, 58, 0.96);
-      border: 1px solid #666666;
-      border-radius: 25px;
-      padding: 28px 22px;
-      text-align: center;
-      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
-      position: relative;
-      overflow: hidden;
-    }
-
-    /* =====================================
-       DECORATION
-    ===================================== */
-    .decor {
-      position: absolute;
-      font-size: 1.4rem;
-      opacity: 0.45;
-      pointer-events: none;
-    }
-    .d1 { top: 15px; left: 20px; }
-    .d2 { top: 15px; right: 20px; }
-    .d3 { bottom: 15px; left: 20px; }
-    .d4 { bottom: 15px; right: 20px; }
-
-    /* =====================================
-       SLIDE
-    ===================================== */
-    .slide {
-      display: none;
-      animation: fadeIn 0.7s ease;
-    }
-    .slide.active { display: block; }
-
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    /* =====================================
-       EMOJI
-    ===================================== */
-    .big-emoji {
-      font-size: 4.5rem;
-      margin: 15px 0 20px;
-      animation: floating 2.5s ease-in-out infinite;
-    }
-
-    @keyframes floating {
-      0%,100% { transform: translateY(0); }
-      50% { transform: translateY(-8px); }
-    }
-
-    /* =====================================
-       TEXT
-    ===================================== */
-    h1 { font-size: 2rem; color: #ffffff; margin-bottom: 12px; }
-    h2 { font-size: 1.45rem; color: #ffffff; margin-bottom: 15px; }
-    h3 { margin-bottom: 12px; color: #eeeeee; }
-    p { color: #cccccc; line-height: 1.65; font-size: 0.95rem; margin-bottom: 18px; }
-    .small { font-size: 0.8rem; color: #aaaaaa; }
-
-    /* =====================================
-       BUTTON
-    ===================================== */
-    .btn {
-      background: linear-gradient(135deg, #666666, #444444);
-      color: white;
-      border: 1px solid #777777;
-      padding: 12px 22px;
-      border-radius: 30px;
-      font-size: 0.95rem;
-      font-weight: bold;
-      cursor: pointer;
-      margin: 6px;
-      transition: 0.25s;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-    }
-    .btn:hover {
-      transform: translateY(-2px);
-      background: linear-gradient(135deg, #777777, #555555);
-    }
-    .btn:active { transform: scale(0.96); }
-
-    /* =====================================
-       INPUT
-    ===================================== */
-    input {
-      width: 85%;
-      padding: 13px 15px;
-      border-radius: 12px;
-      border: 2px solid #555555;
-      background: #222222;
-      color: white;
-      text-align: center;
-      font-size: 1rem;
-      outline: none;
-      margin: 10px 0 15px;
-    }
-    input:focus { border-color: #999999; }
-
-    /* =====================================
-       ERROR / SUCCESS
-    ===================================== */
-    .message {
-      padding: 12px;
-      border-radius: 12px;
-      margin: 12px 0;
-      display: none;
-      font-size: 0.9rem;
-    }
-    .error { background: #482d2d; color: #ffaaaa; }
-    .success { background: #303f34; color: #bde8c8; }
-
-    /* =====================================
-       OPTIONS GAME 2
-    ===================================== */
-    .options { display: grid; gap: 10px; margin: 18px 0; }
-    .option {
-      width: 100%;
-      padding: 13px;
-      border-radius: 12px;
-      border: 1px solid #666666;
-      background: #303030;
-      color: #eeeeee;
-      cursor: pointer;
-      font-size: 0.95rem;
-      transition: 0.25s;
-    }
-    .option:hover { background: #505050; transform: scale(1.02); }
-
-    /* =====================================
-       CODE GAME
-    ===================================== */
-    .code-box {
-      background: #222222;
-      border: 1px solid #555555;
-      padding: 18px;
-      border-radius: 15px;
-      margin: 18px 0;
-      font-size: 1.35rem;
-      letter-spacing: 7px;
-      font-weight: bold;
-    }
-    .hint-box {
-      background: #303030;
-      padding: 12px;
-      border-radius: 12px;
-      color: #bbbbbb;
-      font-size: 0.85rem;
-      margin-bottom: 15px;
-    }
-
-    /* =====================================
-       MEMORY GAME
-    ===================================== */
-    .emoji-memory {
-      background: #252525;
-      border-radius: 15px;
-      padding: 20px;
-      font-size: 2.2rem;
-      letter-spacing: 7px;
-      margin: 18px 0;
-    }
-    .memory-options {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-      margin-top: 15px;
-    }
-    .memory-option {
-      padding: 13px;
-      border-radius: 12px;
-      border: 1px solid #666666;
-      background: #353535;
-      color: white;
-      cursor: pointer;
-      font-size: 1.1rem;
-    }
-    .memory-option:hover { background: #555555; }
-
-    /* =====================================
-       TIMER
-    ===================================== */
-    .timer {
-      font-size: 1.1rem;
-      font-weight: bold;
-      color: #dddddd;
-      margin: 10px 0;
-    }
-
-    /* =====================================
-       GIFT GAME
-    ===================================== */
-    .gift-container {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
-      margin: 25px 0;
-    }
-    .gift {
-      background: #303030;
-      border: 1px solid #666666;
-      border-radius: 15px;
-      padding: 22px 8px;
-      cursor: pointer;
-      font-size: 2.5rem;
-      transition: 0.3s;
-    }
-    .gift:hover {
-      transform: translateY(-7px) rotate(2deg);
-      background: #4a4a4a;
-    }
-
-    /* =====================================
-       PHOTO — DIPERBAIKI
-    ===================================== */
-    .photo-box {
-      width: 100%;
-      margin: 25px auto;
-      text-align: center;
-    }
-    .photo-box img {
-      width: 100%;
-      max-width: 430px;
-      height: auto;
-      display: block;
-      margin: auto;
-      border-radius: 20px;
-      border: 3px solid #777777;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.4);
-      object-fit: cover;
-      filter: grayscale(30%);
-      transition: 0.5s;
-    }
-    .photo-box img:hover { filter: grayscale(0%); }
-
-    /* =====================================
-       FINAL CARD
-    ===================================== */
-    .birthday-title { font-size: 2rem; margin: 10px 0; color: white; }
-    .birthday-name { font-size: 2.8rem; font-weight: bold; color: #eeeeee; margin-bottom: 15px; }
-    .final-message {
-      background: #2c2c2c;
-      padding: 18px;
-      border-radius: 15px;
-      text-align: left;
-      border: 1px solid #444444;
-      margin-top: 15px;
-    }
-
-    /* =====================================
-       ANIMASI PELUKAN — DITAMBAHKAN
-    ===================================== */
-    .hug-container {
-      position: relative;
-      width: 200px;
-      height: 180px;
-      margin: 35px auto 25px;
-    }
-    .person {
-      position: absolute;
-      bottom: 20px;
-      width: 70px;
-      height: 100px;
-      border-radius: 35px 35px 25px 25px;
-      background: linear-gradient(180deg, #ffdbac 0%, #f0c890 100%);
-    }
-    .person::before {
-      content: '';
-      position: absolute;
-      top: -25px;
-      left: 10px;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: linear-gradient(180deg, #ffdbac 0%, #f0c890 100%);
-    }
-    .person-1::after, .person-2::after {
-      content: '';
-      position: absolute;
-      top: -30px;
-      left: 5px;
-      width: 60px;
-      height: 35px;
-      border-radius: 50% 50% 0 0;
-    }
-    .person-1::after { background: #5d4037; }
-    .person-2::after { background: #8d6e63; }
-    .person-1 {
-      left: 30px;
-      transform: scaleX(-1);
-      animation: hugLeft 2s ease-in-out infinite alternate;
-    }
-    .person-2 {
-      right: 30px;
-      animation: hugRight 2s ease-in-out infinite alternate;
-    }
-    .arm {
-      position: absolute;
-      width: 25px;
-      height: 60px;
-      border-radius: 15px;
-      background: linear-gradient(180deg, #ffdbac 0%, #f0c890 100%);
-    }
-    .person-1 .arm {
-      top: 20px;
-      right: -15px;
-      transform: rotate(-30deg);
-      transform-origin: top left;
-      animation: armLeft 2s ease-in-out infinite alternate;
-    }
-    .person-2 .arm {
-      top: 20px;
-      left: -15px;
-      transform: rotate(30deg);
-      transform-origin: top right;
-      animation: armRight 2s ease-in-out infinite alternate;
-    }
-    .heart-hug {
-      position: absolute;
-      top: 40px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-size: 2.5rem;
-      color: #ff6b9d;
-      animation: heartbeat 1s ease-in-out infinite alternate;
-      z-index: 5;
-      text-shadow: 0 0 10px rgba(255,107,157,0.5);
-    }
-    @keyframes hugLeft {
-      0%   { transform: scaleX(-1) translateX(0); }
-      100% { transform: scaleX(-1) translateX(8px); }
-    }
-    @keyframes hugRight {
-      0%   { transform: translateX(0); }
-      100% { transform: translateX(8px); }
-    }
-    @keyframes armLeft {
-      0%   { transform: rotate(-30deg); }
-      100% { transform: rotate(-10deg); }
-    }
-    @keyframes armRight {
-      0%   { transform: rotate(30deg); }
-      100% { transform: rotate(10deg); }
-    }
-    @keyframes heartbeat {
-      0%   { transform: translateX(-50%) scale(1); opacity: 0.8; }
-      100% { transform: translateX(-50%) scale(1.2); opacity: 1; }
-    }
-
-    /* =====================================
-       PESAN TAMBAHAN & DOA
-    ===================================== */
-    .extra-wishes {
-      background: #2c2c2c;
-      padding: 22px;
-      border-radius: 15px;
-      border: 1px solid #444;
-      margin-top: 10px;
-      text-align: center;
-    }
-    .extra-wishes h3 {
-      color: #ffd700;
-      font-size: 1.2rem;
-      margin-bottom: 15px;
-    }
-    .extra-wishes p {
-      color: #dddddd;
-      line-height: 1.7;
-      font-size: 0.95rem;
-    }
-    .prayer-line {
-      color: #ffb6c1;
-      font-style: italic;
-    }
-
-    /* =====================================
-       CONFETTI
-    ===================================== */
-    .confetti {
-      position: fixed;
-      top: -20px;
-      font-size: 1.5rem;
-      animation: fall 3s linear forwards;
-      pointer-events: none;
-      z-index: 9999;
-    }
-    @keyframes fall {
-      to {
-        transform: translateY(110vh) rotate(720deg);
-        opacity: 0;
-      }
-    }
-
-    /* =====================================
-       YOUTUBE
-    ===================================== */
-    #musicPlayer {
-      position: fixed;
-      width: 1px;
-      height: 1px;
-      opacity: 0;
-      pointer-events: none;
-      border: none;
-    }
-
-    /* =====================================
-       MOBILE
-    ===================================== */
-    @media (max-width: 480px) {
-      .container { padding: 23px 17px; }
-      h1 { font-size: 1.7rem; }
-      h2 { font-size: 1.3rem; }
-      .birthday-name { font-size: 2.3rem; }
-      .big-emoji { font-size: 3.8rem; }
-      .gift { font-size: 2.1rem; padding: 20px 5px; }
-    }
-  </style>
-</head>
-
-<body>
-  <!-- DEKORASI -->
-  <div class="decor d1">🩶</div>
-  <div class="decor d2">✨</div>
-  <div class="decor d3">🤍</div>
-  <div class="decor d4">🦫</div>
-
-  <div class="container">
-    <!-- =====================================
-         GAME 1
-    ====================================== -->
-    <div class="slide active" id="slide1">
-      <div class="big-emoji">🦫💬</div>
-      <h2>Teka-teki pertama!</h2>
-      <p>Sebelum masuk ke sesuatu yang spesial, Centa harus melewati satu teka-teki dulu 😌</p>
-      <p><strong>"Hewan apa yang santai banget, menggemaskan, warna coklat, dan bikin aku selalu ingat sama kamu?"</strong></p>
-      <input type="text" id="gameAnswer" placeholder="Jawab di sini..."><br>
-      <button class="btn" onclick="checkGame1()">🔓 Buka Jalan</button>
-      <div class="message error" id="game1Error">Hmm... belum tepat 😭<br>Petunjuknya: Capy...</div>
-    </div>
-
-    <!-- =====================================
-         GAME 2
-    ====================================== -->
-    <div class="slide" id="slide2">
-      <div class="big-emoji">🧠✨</div>
-      <h2>Game 2 — Seberapa Kenal Centa?</h2>
-      <p>Oke, sekarang kita lihat seberapa jago Centa membaca situasi 😏</p>
-      <p><strong>Kalau aku melihat kambing atau capybara, siapa yang langsung terlintas di pikiranku?</strong></p>
-      <div class="options">
-        <button class="option" onclick="game2Answer(false)">A. Pak RT 🧔</button>
-        <button class="option" onclick="game2Answer(true)">B. Centa 🦫</button>
-        <button class="option" onclick="game2Answer(false)">C. Guru Matematika 📚</button>
-        <button class="option" onclick="game2Answer(false)">D. Tetangga sebelah 🏠</button>
+      <!-- TOMBOL MUSIK -->
+      <div style="text-align:center; margin:20px 0;">
+        <button class="btn" id="musicToggleBtn" onclick="toggleMusic()">🔇 Matikan Lagu</button>
       </div>
-      <div class="message error" id="game2Error">Yakin? Coba pikir lagi 😂</div>
-    </div>
-
-    <!-- =====================================
-         GAME 3
-    ====================================== -->
-    <div class="slide" id="slide3">
-      <div class="big-emoji">🔐🧩</div>
-      <h2>Game 3 — Kode Rahasia</h2>
-      <p>Ada pesan rahasia yang hanya bisa dibuka oleh orang yang pintar 😎</p>
-      <div class="code-box">3 - 5 - 14 - 20 - 1</div>
-      <div class="hint-box">Petunjuk:<br>A = 1, B = 2, C = 3, dan seterusnya...</div>
-      <input type="text" id="codeAnswer" placeholder="Masukkan nama..."><br>
-      <button class="btn" onclick="checkGame3()">🔓 Pecahkan Kode</button>
-      <div class="message error" id="game3Error">Hmm... kodenya belum benar 😭</div>
-    </div>
-
-    <!-- =====================================
-         GAME 4
-    ====================================== -->
-    <div class="slide" id="slide4">
-      <div class="big-emoji">🧩👀</div>
-      <h2>Game 4 — Memory Challenge</h2>
-      <p id="memoryInstruction">Hafalkan emoji ini dalam 5 detik!</p>
-      <div class="emoji-memory" id="emojiDisplay">🦫 🩶 🐐 ⭐ 📱</div>
-      <div class="timer" id="timer">Waktu: 5</div>
-      <button class="btn" id="startMemoryBtn" onclick="startMemoryGame()">👀 Mulai</button>
-      <div id="memoryQuestion" style="display:none;">
-        <p><strong>Emoji mana yang tadi muncul?</strong></p>
-        <div class="memory-options">
-          <button class="memory-option" onclick="memoryAnswer('🦫')">🦫</button>
-          <button class="memory-option" onclick="memoryAnswer('🐱')">🐱</button>
-          <button class="memory-option" onclick="memoryAnswer('🐐')">🐐</button>
-          <button class="memory-option" onclick="memoryAnswer('🍕')">🍕</button>
-          <button class="memory-option" onclick="memoryAnswer('🩶')">🩶</button>
-          <button class="memory-option" onclick="memoryAnswer('🌸')">🌸</button>
-        </div>
-      </div>
-      <div class="message error" id="game4Error">Yahhh salah 😭 Coba lebih teliti!</div>
-    </div>
-
-    <!-- =====================================
-         GAME 5
-    ====================================== -->
-    <div class="slide" id="slide5">
-      <div class="big-emoji">🎁✨</div>
-      <h2>Game 5 — Hadiah Terakhir</h2>
-      <p>Kamu sudah sampai sejauh ini... sekarang tinggal memilih satu hadiah.</p>
-      <p><strong>Tapi cuma satu yang berisi pesan rahasia Centa 👀</strong></p>
-      <div class="gift-container">
-        <div class="gift" onclick="chooseGift(1)">🎁<div class="small">A</div></div>
-        <div class="gift" onclick="chooseGift(2)">🎁<div class="small">B</div></div>
-        <div class="gift" onclick="chooseGift(3)">🎁<div class="small">C</div></div>
-      </div>
-      <div class="message error" id="giftError"></div>
-    </div>
-
-    <!-- =====================================
-         FINAL — DIPERBAIKI & DITAMBAH
-    ====================================== -->
-    <div class="slide" id="slide6">
-      <div class="big-emoji">🎉🦫🤍</div>
-      <div class="birthday-title">HAPPY SWEET SEVENTEEN</div>
-      <div class="birthday-name">CENTA</div>
-      <p>✨ Kamu berhasil melewati semua permainan! ✨</p>
-
-      <!-- FOTO — DIPERBAIKI -->
-<div class="photo-box">
-  <img src="91425.jpg" alt="Foto Centa dan Aku">
-</div>
-
-<!-- Tombol Musik — biar kelihatan jelas di bawah foto -->
-<div style="text-align:center; margin:20px 0;">
-  <button class="btn" onclick="toggleMusic()">🎵 Klik Putar Lagu</button>
-</div>
-
 
       <!-- PESAN UTAMA -->
       <div class="final-message">
         <p>🤍 <b>Untuk Centa, di umur 17 tahun...</b></p>
-        <p>Kalau kamu sampai membaca bagian ini, berarti kamu sudah berhasil melewati semua permainan kecil yang aku buat khusus untukmu. Tapi sebenarnya, semua permainan itu bukan tentang seberapa cepat kamu menjawab atau seberapa pintar kamu memecahkan teka-teki.</p>
+        <p>Kalau kamu sampai di bagian ini, berarti kamu sudah berhasil melewati semua permainan kecil yang aku buat khusus untukmu. Tapi sebenarnya, semua permainan itu bukan tentang seberapa cepat kamu menjawab atau seberapa pintar kamu memecahkan teka-teki.</p>
         <p>Aku cuma ingin kamu sampai di halaman ini supaya aku bisa mengatakan sesuatu yang mungkin tidak selalu sempat aku katakan secara langsung.</p>
         <p><b>Centa, jangan pernah merasa bahwa hidupmu menjadi lebih kecil hanya karena jalanmu berbeda dari orang lain.</b></p>
         <p>Mungkin setelah ini kamu tidak melanjutkan pendidikan seperti sebagian teman-temanmu. Mungkin ada orang yang memilih jalan kuliah, sementara kamu memilih jalan yang berbeda: pergi ke Jepang, mencari pengalaman, belajar hidup di tempat baru, dan membangun masa depanmu dengan caramu sendiri.</p>
@@ -1167,259 +262,14 @@
         <p style="text-align:center; font-size:1.2rem;"><b>Selamat datang di umur 17 tahun, Centa.<br>Ini bukan akhir dari pendidikanmu.<br>Ini hanya bentuk lain dari belajar.<br><br>Happy Sweet Seventeen. 🎂🤍</b></p>
       </div>
 
-      <!-- ANIMASI PELUKAN — DITAMBAHKAN -->
+      <!-- ANIMASI PELUKAN -->
       <div class="hug-container">
         <div class="heart-hug">🤍</div>
         <div class="person person-1"><div class="arm"></div></div>
         <div class="person person-2"><div class="arm"></div></div>
       </div>
 
-      <!-- PESAN MOTIVASI & DOA TAMBAHAN — DITAMBAHKAN -->
-      <div class="extra-wishes">
-        <h3>✨ Pesan Kecil Untuk Centa ✨</h3>
-        <p>Tetaplah menjadi Centa yang ceria, berani, dan tulus. 🦫<br>
-        Dunia ini luas sekali, dan kamu pantas untuk melihat keindahannya.<br>
-        Jangan pernah ragu pada dirimu — karena di setiap langkahmu,<br>
-        ada orang-orang yang percaya dan bangga padamu.</p>
-        <p class="prayer-line">🤲 Semoga Allah selalu melindungimu di mana pun kamu berada.<br>
-        Semoga setiap langkahmu diberkahi, setiap impianmu dipermudah,<br>
-        dan hatimu selalu dipenuhi kebahagiaan serta ketenangan.<br>
-        Semoga perjalananmu membawa kebaikan untuk dirimu dan semua orang di sekitarmu.</p>
-        <p>🇯🇵 Pergilah dengan berani, tumbuhlah dengan bahagia.<br>
-        Ingat — jarak bukan berarti jauh, dan pertemuan kembali pasti akan ada.<br><br>
-        <strong style="color:#fff; font-size:1.05rem;">
-          Selamat Ulang Tahun ke-17, Centa 🎂🤍<br>
-          Semoga tahun ini menjadi awal dari hal-hal luar biasa dalam hidupmu. ✨
-        </strong>
-        </p>
-      </div>
-
-      <p class="hint">🎵 Sekarang nikmati lagunya dan lihat kembali semua kenangan ini.</p>
-    </div>
-  </div>
-
-  <!-- =====================================
-       YOUTUBE MUSIC
-  ====================================== -->
-  <iframe id="musicPlayer" src="" title="Music Player" allow="autoplay; encrypted-media"></iframe>
-
-  <script>
-    /* =====================================
-       MUSIK YOUTUBE
-    ====================================== */
-    <!-- YOUTUBE MUSIC PLAYER -->
-<iframe 
-  id="musicPlayer" 
-  src="" 
-  title="Music Player" 
-  allow="autoplay; encrypted-media"
-  style="display:none;"
-></iframe>
-
-<script>
-let musicPlaying = false;
-const YOUTUBE_ID = "5UihqGaL5nM"; // ID lagu YouTube kamu
-
-function toggleMusic() {
-  const player = document.getElementById("musicPlayer");
-  if (!musicPlaying) {
-    player.src = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&loop=1&playlist=${YOUTUBE_ID}`;
-    musicPlaying = true;
-    alert("🎵 Lagu diputar!"); // opsional, biar tahu tombol berfungsi
-  } else {
-    player.src = "";
-    musicPlaying = false;
-  }
-}
-</script>
-
-
-    /* =====================================
-       GANTI SLIDE
-    ====================================== */
-    function nextSlide(number) {
-      const slides = document.querySelectorAll(".slide");
-      slides.forEach(function(slide) { slide.classList.remove("active"); });
-      const target = document.getElementById("slide" + number);
-      if (target) target.classList.add("active");
-    }
-
-    /* =====================================
-       GAME 1
-    ====================================== */
-    function checkGame1() {
-      const answer = document.getElementById("gameAnswer").value.toLowerCase().trim();
-      if (answer.includes("capy") || answer.includes("capybara") || answer.includes("senta") || answer.includes("centa")) {
-        playMusic();
-        createConfetti();
-        setTimeout(function() { nextSlide(2); }, 500);
-      } else {
-        document.getElementById("game1Error").style.display = "block";
-      }
-    }
-
-    /* =====================================
-       GAME 2
-    ====================================== */
-    function game2Answer(correct) {
-      const error = document.getElementById("game2Error");
-      if (correct) {
-        error.style.display = "none";
-        createConfetti();
-        setTimeout(function() { nextSlide(3); }, 500);
-      } else {
-        error.style.display = "block";
-      }
-    }
-
-    /* =====================================
-       GAME 3
-    ====================================== */
-    function checkGame3() {
-      const answer = document.getElementById("codeAnswer").value.toLowerCase().trim();
-      if (answer === "centa" || answer === "senta") {
-        document.getElementById("game3Error").style.display = "none";
-        createConfetti();
-        setTimeout(function() { nextSlide(4); }, 500);
-      } else {
-        document.getElementById("game3Error").style.display = "block";
-      }
-    }
-
-    /* =====================================
-       GAME 4
-    ====================================== */
-    let memoryStarted = false;
-    function startMemoryGame() {
-      if (memoryStarted) return;
-      memoryStarted = true;
-      const display = document.getElementById("emojiDisplay");
-      const timer = document.getElementById("timer");
-      const button = document.getElementById("startMemoryBtn");
-      button.style.display = "none";
-      let time = 5;
-      const countdown = setInterval(function() {
-        time--;
-        timer.innerText = "Waktu: " + time;
-        if (time <= 0) {
-          clearInterval(countdown);
-          display.innerText = "❓ ❓ ❓ ❓ ❓";
-          timer.innerText = "Waktunya habis!";
-          document.getElementById("memoryQuestion").style.display = "block";
-        }
-      }, 1000);
-    }
-
-    function memoryAnswer(answer) {
-      const correct = answer === "🦫" || answer === "🐐" || answer === "🩶";
-      if (correct) {
-        document.getElementById("game4Error").style.display = "none";
-        createConfetti();
-        setTimeout(function() { nextSlide(5); }, 600);
-      } else {
-        document.getElementById("game4Error").style.display = "block";
-      }
-    }
-
-    /* =====================================
-       GAME 5
-    ====================================== */
-    function chooseGift(number) {
-      const error = document.getElementById("giftError");
-      if (number === 2) {
-        error.className = "message success";
-        error.innerHTML = "🎉 BENARRR! 🎉<br>Kamu menemukan hadiah rahasia!";
-        error.style.display = "block";
-        createConfetti();
-        setTimeout(function() { nextSlide(6); createConfetti(); }, 1200);
-      } else {
-        error.className = "message error";
-        error.innerHTML = number === 1 ? "😭 Belum... hadiah ini kosong!" : "👀 Hampirrr... coba kotak lain!";
-        error.style.display = "block";
-      }
-    }
-
-    /* =====================================
-       CONFETTI
-    ====================================== */
-    function createConfetti() {
-      const symbols = ["✨", "🤍", "🩶", "🦫", "🎉", "⭐", "🎂"];
-      for (let i = 0; i < 25; i++) {
-        const confetti = document.createElement("div");
-        confetti.className = "confetti";
-        confetti.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.animationDuration = (2 + Math.random() * 2) + "s";
-        document.body.appendChild(confetti);
-        setTimeout(function() { confetti.remove(); }, 4500);
-      }
-    }
-
-    /* =====================================
-       ENTER KEY
-    ====================================== */
-    document.getElementById("gameAnswer").addEventListener("keydown", function(event) {
-      if (event.key === "Enter") checkGame1();
-    });
-    document.getElementById("codeAnswer").addEventListener("keydown", function(event) {
-      if (event.key === "Enter") checkGame3();
-    });
-  </script>
-</body>
-</html>
-<div class="photo-box">
-  <img src="91425.jpg" alt="Foto Centa dan Aku">
-</div>
-<!-- Tombol Musik — biar kelihatan jelas di bawah foto -->
-<div style="text-align:center; margin:20px 0;">
-  <button class="btn" onclick="toggleMusic()">🎵 Klik Putar Lagu</button>
-</div> 
-
-      <!-- PESAN UTAMA -->
-      <div class="final-message">
-        <p>🤍 <b>Untuk Centa, di umur 17 tahun...</b></p>
-        <p>Kalau kamu sampai membaca bagian ini, berarti kamu sudah berhasil melewati semua permainan kecil yang aku buat khusus untukmu. Tapi sebenarnya, semua permainan itu bukan tentang seberapa cepat kamu menjawab atau seberapa pintar kamu memecahkan teka-teki.</p>
-        <p>Aku cuma ingin kamu sampai di halaman ini supaya aku bisa mengatakan sesuatu yang mungkin tidak selalu sempat aku katakan secara langsung.</p>
-        <p><b>Centa, jangan pernah merasa bahwa hidupmu menjadi lebih kecil hanya karena jalanmu berbeda dari orang lain.</b></p>
-        <p>Mungkin setelah ini kamu tidak melanjutkan pendidikan seperti sebagian teman-temanmu. Mungkin ada orang yang memilih jalan kuliah, sementara kamu memilih jalan yang berbeda: pergi ke Jepang, mencari pengalaman, belajar hidup di tempat baru, dan membangun masa depanmu dengan caramu sendiri.</p>
-        <p>Dan aku ingin kamu tahu satu hal: <b>jalan yang berbeda bukan berarti jalan yang salah.</b></p>
-        <p>Jangan pernah membandingkan halaman hidupmu dengan halaman hidup orang lain. Ada orang yang menemukan jalannya di bangku kuliah, ada yang menemukannya ketika bekerja, ada yang menemukannya ketika merantau, dan ada pula yang harus mencoba berkali-kali sebelum akhirnya tahu ke mana harus pergi.</p>
-        <p>Jadi kalau suatu saat kamu melihat teman-temanmu melanjutkan pendidikan dan kamu merasa tertinggal, berhentilah sebentar dan ingat: <b>kamu tidak sedang terlambat. Kamu hanya sedang berjalan di jalurmu sendiri.</b></p>
-        <p>🇯🇵 Dan kalau Jepang adalah salah satu langkah yang ingin kamu ambil, pergilah dengan berani. Bukan karena kamu harus membuktikan sesuatu kepada orang lain, tetapi karena kamu pantas memberikan kesempatan kepada dirimu sendiri untuk melihat sejauh apa kamu bisa berkembang.</p>
-        <p>Mungkin nanti ada hari ketika semuanya terasa sulit. Ada hari ketika kamu merasa sendirian. Ada hari ketika kamu rindu rumah, bingung, capek, atau bertanya-tanya apakah keputusanmu benar.</p>
-        <p>Kalau hari itu datang, <b>jangan buru-buru menganggap dirimu gagal.</b> Istirahatlah. Tarik napas. Ingat kembali alasan kenapa kamu memulai. Lalu coba lagi pelan-pelan.</p>
-        <p>Karena keberanian bukan berarti tidak pernah takut. Keberanian adalah tetap mencoba meskipun ada rasa takut.</p>
-        <p>Dan Centa... <b>tolong jangan pernah mengukur harga dirimu dari ijazah, pekerjaan, uang, pencapaian, atau seberapa cepat kamu mencapai sesuatu.</b></p>
-        <p>Semua itu memang penting dalam perjalanan hidup, tapi semua itu tidak menentukan apakah keberadaanmu layak dihargai atau tidak.</p>
-        <p><b>Kamu berharga bahkan ketika sedang belum mencapai apa-apa.</b></p>
-        <p>Kamu tetap berharga ketika sedang bingung. Kamu tetap berharga ketika sedang gagal. Kamu tetap berharga ketika harus memulai lagi. Kamu tetap berharga ketika orang lain tidak mengerti pilihanmu.</p>
-        <p>Dan mungkin kamu sendiri tidak menyadarinya, tetapi keberadaanmu bisa memberikan dampak yang jauh lebih besar daripada yang kamu kira.</p>
-        <p>Kadang kita berpikir bahwa untuk memberikan dampak kepada orang lain kita harus melakukan sesuatu yang besar. Padahal bisa saja seseorang mengingat kita hanya karena pernah dibuat tertawa, pernah didengarkan, pernah ditemani, atau pernah merasa tidak sendirian karena kita ada di sana.</p>
-        <p>Jadi jangan remehkan keberadaanmu. <b>Kamu punya tempat di dunia ini. Kamu punya cerita yang hanya bisa kamu tulis sendiri.</b></p>
-        <p>Kalau suatu hari kamu berhasil mencapai sesuatu yang besar, jangan lupa dengan Centa yang sekarang. Dan kalau suatu hari kamu belum berhasil, jangan membenci Centa yang sekarang juga.</p>
-        <p>Dia sedang belajar. Dia sedang bertumbuh. Dia sedang mencari jalan. Dan itu sudah cukup untuk membuatnya layak mendapatkan kesempatan lagi.</p>
-        <p>✨ Jadi untuk perjalananmu ke depan... semoga kamu bertemu banyak orang baik. Semoga kamu mendapatkan pengalaman yang membuatmu semakin dewasa. Semoga kamu punya keberanian untuk berkata "aku bisa mencoba lagi" setiap kali sesuatu tidak berjalan sesuai harapan.</p>
-        <p>Semoga ketika berada jauh dari rumah, kamu tetap menemukan tempat-tempat yang membuatmu merasa aman. Semoga kamu bisa membawa pulang banyak cerita. Bukan hanya tentang keberhasilan, tetapi juga tentang proses yang membuatmu menjadi versi dirimu yang lebih kuat.</p>
-        <p>Dan kalau nanti kamu sudah berada di Jepang, mungkin suatu hari kamu akan melihat kembali website kecil ini dan tertawa karena ternyata dulu ada seseorang yang sengaja membuat lima permainan hanya untuk menyampaikan pesan sepanjang ini. 😂</p>
-        <p>Tapi semoga saat itu kamu tersenyum dan berkata:</p>
-        <p style="text-align:center; font-size:1.1rem;"><b>"Ternyata aku berhasil sampai sejauh ini."</b></p>
-        <p>Karena aku ingin kamu terus berjalan. Bukan untuk menjadi seperti orang lain, tetapi untuk menemukan sendiri siapa dirimu dan seberapa jauh kamu bisa melangkah.</p>
-        <p><b>Jangan kecilkan dirimu hanya karena hidupmu belum sesuai dengan ekspektasi orang lain.</b></p>
-        <p>Kamu tidak harus punya jalan yang sama dengan siapa pun untuk menjadi seseorang yang hebat.</p>
-        <p>Kamu hanya perlu terus belajar, terus mencoba, terus memperbaiki diri, dan jangan menyerah pada dirimu sendiri.</p>
-        <p style="text-align:center; font-size:1.15rem;">🦫🤍 <b>Centa, dunia ini masih punya banyak tempat untukmu.</b></p>
-        <p style="text-align:center;">🇯🇵 Pergilah sejauh yang kamu mau.<br>🌱 Belajarlah sebanyak yang kamu bisa.<br>✨ Tumbuhlah dengan caramu sendiri.<br>🩶 Dan jangan pernah lupa bahwa keberadaanmu berarti.</p>
-        <p style="text-align:center; font-size:1.2rem;"><b>Selamat datang di umur 17 tahun, Centa.<br>Ini bukan akhir dari pendidikanmu.<br>Ini hanya bentuk lain dari belajar.<br><br>Happy Sweet Seventeen. 🎂🤍</b></p>
-      </div>
-
-      <!-- ANIMASI PELUKAN — DITAMBAHKAN -->
-      <div class="hug-container">
-        <div class="heart-hug">🤍</div>
-        <div class="person person-1"><div class="arm"></div></div>
-        <div class="person person-2"><div class="arm"></div></div>
-      </div>
-
-      <!-- PESAN MOTIVASI & DOA TAMBAHAN — DITAMBAHKAN -->
+      <!-- PESAN TAMBAHAN & DOA -->
       <div class="extra-wishes">
         <h3>✨ Pesan Kecil Untuk Centa ✨</h3>
         <p>Tetaplah menjadi Centa yang ceria, berani, dan tulus. 🦫<br>
@@ -1439,177 +289,130 @@ function toggleMusic() {
         </p>
       </div>
 
-      <p class="hint">🎵 Sekarang nikmati lagunya dan lihat kembali semua kenangan ini.</p>
+      <p style="text-align:center; color:#aaa; font-size:.85rem; margin-top:15px;">🎵 Lagu: Semua Aku Dirayakan — Nadin Amizah 🤍</p>
     </div>
   </div>
 
-  <!-- =====================================
-       YOUTUBE MUSIC
-  ====================================== -->
-<!-- YOUTUBE MUSIC PLAYER -->
-<iframe 
-  id="musicPlayer" 
-  src="" 
-  title="Music Player" 
-  allow="autoplay; encrypted-media"
-  style="display:none;"
-></iframe>
+  <!-- PEMAIN MUSIK -->
+  <iframe id="musicPlayer" src="" title="Music Player" allow="autoplay; encrypted-media" allowfullscreen></iframe>
 
-<script>
-let musicPlaying = false;
-const YOUTUBE_ID = "5UihqGaL5nM"; // ID lagu YouTube kamu
+  <script>
+    let musicPlaying = false;
+    const YOUTUBE_ID = "04mIaRtg73w"; // ✅ Semua Aku Dirayakan - Nadin Amizah
 
-function toggleMusic() {
-  const player = document.getElementById("musicPlayer");
-  if (!musicPlaying) {
-    player.src = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&loop=1&playlist=${YOUTUBE_ID}`;
-    musicPlaying = true;
-    alert("🎵 Lagu diputar!"); // opsional, biar tahu tombol berfungsi
-  } else {
-    player.src = "";
-    musicPlaying = false;
-  }
-}
-</script>
-
-    /* =====================================
-       MUSIK YOUTUBE
-    ====================================== */
-    function playMusic() {
+    // ✅ LAGU OTOMATIS BERMAIN SAAT HALAMAN DIBUKA
+    function autoPlayMusic() {
       const player = document.getElementById("musicPlayer");
-      player.src = "https://www.youtube.com/embed/5UihqGaL5nM?autoplay=1&loop=1&playlist=5UihqGaL5nM&controls=0";
+      player.src = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&loop=1&playlist=${YOUTUBE_ID}&enablejsapi=1`;
+      musicPlaying = true;
+      updateMusicButton();
     }
 
-    /* =====================================
-       GANTI SLIDE
-    ====================================== */
+    function toggleMusic() {
+      const player = document.getElementById("musicPlayer");
+      if (!musicPlaying) {
+        player.src = `https://www.youtube.com/embed/${YOUTUBE_ID}?autoplay=1&loop=1&playlist=${YOUTUBE_ID}`;
+        musicPlaying = true;
+      } else {
+        player.src = "";
+        musicPlaying = false;
+      }
+      updateMusicButton();
+    }
+
+    function updateMusicButton() {
+      const btn = document.getElementById("musicToggleBtn");
+      if (btn) {
+        btn.innerText = musicPlaying ? "🔇 Matikan Lagu" : "🎵 Putar Lagu";
+      }
+    }
+
     function nextSlide(number) {
-      const slides = document.querySelectorAll(".slide");
-      slides.forEach(function(slide) { slide.classList.remove("active"); });
-      const target = document.getElementById("slide" + number);
-      if (target) target.classList.add("active");
+      document.querySelectorAll(".slide").forEach(s => s.classList.remove("active"));
+      document.getElementById("slide" + number)?.classList.add("active");
     }
 
-    /* =====================================
-       GAME 1
-    ====================================== */
     function checkGame1() {
-      const answer = document.getElementById("gameAnswer").value.toLowerCase().trim();
-      if (answer.includes("capy") || answer.includes("capybara") || answer.includes("senta") || answer.includes("centa")) {
-        playMusic();
+      const ans = document.getElementById("gameAnswer").value.toLowerCase().trim();
+      if (ans.includes("capy") || ans.includes("capybara") || ans.includes("centa") || ans.includes("senta")) {
         createConfetti();
-        setTimeout(function() { nextSlide(2); }, 500);
+        setTimeout(() => nextSlide(2), 500);
       } else {
         document.getElementById("game1Error").style.display = "block";
       }
     }
 
-    /* =====================================
-       GAME 2
-    ====================================== */
     function game2Answer(correct) {
-      const error = document.getElementById("game2Error");
-      if (correct) {
-        error.style.display = "none";
-        createConfetti();
-        setTimeout(function() { nextSlide(3); }, 500);
-      } else {
-        error.style.display = "block";
-      }
+      const err = document.getElementById("game2Error");
+      if (correct) { err.style.display = "none"; createConfetti(); setTimeout(() => nextSlide(3), 500); }
+      else err.style.display = "block";
     }
 
-    /* =====================================
-       GAME 3
-    ====================================== */
     function checkGame3() {
-      const answer = document.getElementById("codeAnswer").value.toLowerCase().trim();
-      if (answer === "centa" || answer === "senta") {
+      const ans = document.getElementById("codeAnswer").value.toLowerCase().trim();
+      if (ans === "centa" || ans === "senta") {
         document.getElementById("game3Error").style.display = "none";
         createConfetti();
-        setTimeout(function() { nextSlide(4); }, 500);
-      } else {
-        document.getElementById("game3Error").style.display = "block";
-      }
+        setTimeout(() => nextSlide(4), 500);
+      } else document.getElementById("game3Error").style.display = "block";
     }
 
-    /* =====================================
-       GAME 4
-    ====================================== */
     let memoryStarted = false;
     function startMemoryGame() {
       if (memoryStarted) return;
       memoryStarted = true;
-      const display = document.getElementById("emojiDisplay");
-      const timer = document.getElementById("timer");
-      const button = document.getElementById("startMemoryBtn");
-      button.style.display = "none";
+      document.getElementById("startMemoryBtn").style.display = "none";
       let time = 5;
-      const countdown = setInterval(function() {
-        time--;
-        timer.innerText = "Waktu: " + time;
+      const timer = document.getElementById("timer");
+      const countdown = setInterval(() => {
+        time--; timer.innerText = "Waktu: " + time;
         if (time <= 0) {
           clearInterval(countdown);
-          display.innerText = "❓ ❓ ❓ ❓ ❓";
+          document.getElementById("emojiDisplay").innerText = "❓ ❓ ❓ ❓ ❓";
           timer.innerText = "Waktunya habis!";
           document.getElementById("memoryQuestion").style.display = "block";
         }
       }, 1000);
     }
 
-    function memoryAnswer(answer) {
-      const correct = answer === "🦫" || answer === "🐐" || answer === "🩶";
-      if (correct) {
+    function memoryAnswer(ans) {
+      if (ans === "🦫" || ans === "🐐" || ans === "🩶") {
         document.getElementById("game4Error").style.display = "none";
         createConfetti();
-        setTimeout(function() { nextSlide(5); }, 600);
-      } else {
-        document.getElementById("game4Error").style.display = "block";
-      }
+        setTimeout(() => nextSlide(5), 600);
+      } else document.getElementById("game4Error").style.display = "block";
     }
 
-    /* =====================================
-       GAME 5
-    ====================================== */
-    function chooseGift(number) {
-      const error = document.getElementById("giftError");
-      if (number === 2) {
-        error.className = "message success";
-        error.innerHTML = "🎉 BENARRR! 🎉<br>Kamu menemukan hadiah rahasia!";
-        error.style.display = "block";
+    function chooseGift(num) {
+      const err = document.getElementById("giftError");
+      if (num === 2) {
+        err.className = "message success";
+        err.innerHTML = "🎉 BENARRR! 🎉<br>Kamu menemukan hadiah rahasia!";
+        err.style.display = "block";
         createConfetti();
-        setTimeout(function() { nextSlide(6); createConfetti(); }, 1200);
+        setTimeout(() => { nextSlide(6); createConfetti(); }, 1200);
       } else {
-        error.className = "message error";
-        error.innerHTML = number === 1 ? "😭 Belum... hadiah ini kosong!" : "👀 Hampirrr... coba kotak lain!";
-        error.style.display = "block";
+        err.className = "message error";
+        err.innerHTML = num === 1 ? "😭 Belum... hadiah ini kosong!" : "👀 Hampirrr... coba kotak lain!";
+        err.style.display = "block";
       }
     }
 
-    /* =====================================
-       CONFETTI
-    ====================================== */
     function createConfetti() {
-      const symbols = ["✨", "🤍", "🩶", "🦫", "🎉", "⭐", "🎂"];
+      const sym = ["✨", "🤍", "🩶", "🦫", "🎉", "⭐", "🎂"];
       for (let i = 0; i < 25; i++) {
-        const confetti = document.createElement("div");
-        confetti.className = "confetti";
-        confetti.innerText = symbols[Math.floor(Math.random() * symbols.length)];
-        confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.animationDuration = (2 + Math.random() * 2) + "s";
-        document.body.appendChild(confetti);
-        setTimeout(function() { confetti.remove(); }, 4500);
+        const c = document.createElement("div");
+        c.className = "confetti";
+        c.innerText = sym[Math.floor(Math.random() * sym.length)];
+        c.style.left = Math.random() * 100 + "vw";
+        c.style.animationDuration = (2 + Math.random() * 2) + "s";
+        document.body.appendChild(c);
+        setTimeout(() => c.remove(), 4500);
       }
     }
 
-    /* =====================================
-       ENTER KEY
-    ====================================== */
-    document.getElementById("gameAnswer").addEventListener("keydown", function(event) {
-      if (event.key === "Enter") checkGame1();
-    });
-    document.getElementById("codeAnswer").addEventListener("keydown", function(event) {
-      if (event.key === "Enter") checkGame3();
-    });
+    document.getElementById("gameAnswer")?.addEventListener("keydown", e => e.key === "Enter" && checkGame1());
+    document.getElementById("codeAnswer")?.addEventListener("keydown", e => e.key === "Enter" && checkGame3());
   </script>
 </body>
 </html>
